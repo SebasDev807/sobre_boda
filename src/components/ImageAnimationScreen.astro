@@ -1,24 +1,42 @@
 ---
-import marcoFlores from '../assets/flores_1.png';
-import cornerFlores from '../assets/flores_2.png';
-import cornerFlores3 from '../assets/flores_3.png';
-import trigo1 from '../assets/trigo_1.png';
-import hojas1 from '../assets/hojas-1.png';
+import marcoFlores from "../assets/flores_1.png";
+import cornerFlores from "../assets/flores_2.png";
+import cornerFlores3 from "../assets/flores_3.png";
+import trigo1 from "../assets/trigo_1.png";
+import hojas1 from "../assets/hojas-1.png";
+import flores4 from "../assets/flores_4.png";
+import flores5 from "../assets/flores_5.png";
 ---
 
 <div id="image-animation-screen" class="animation-screen">
   <div class="frame-container">
     <!-- El marco de flores por encima de las imágenes -->
     <img src={marcoFlores.src} alt="Marco decorativo" class="flower-frame" />
-    
+
     <!-- Adornos de las esquinas -->
-    <img src={cornerFlores.src} alt="Esquina superior derecha" class="corner-flower corner-tr" />
-    <img src={cornerFlores.src} alt="Esquina inferior izquierda" class="corner-flower corner-bl" />
-    
+    <img
+      src={cornerFlores.src}
+      alt="Esquina superior derecha"
+      class="corner-flower corner-tr"
+    />
+    <img
+      src={cornerFlores.src}
+      alt="Esquina inferior izquierda"
+      class="corner-flower corner-bl"
+    />
+
     <!-- Detalles extra de esquinas (flores_3) -->
-    <img src={cornerFlores3.src} alt="Detalle superior derecha" class="corner-flower corner-tr" />
-    <img src={cornerFlores3.src} alt="Detalle inferior izquierda" class="corner-flower corner-bl" />
-    
+    <img
+      src={cornerFlores3.src}
+      alt="Detalle superior derecha"
+      class="corner-flower corner-tr"
+    />
+    <img
+      src={cornerFlores3.src}
+      alt="Detalle inferior izquierda"
+      class="corner-flower corner-bl"
+    />
+
     <!-- Elementos con animación de viento (trigo y hojas) -->
     <div class="swaying-container">
       <!-- Esquina Superior Derecha -->
@@ -27,7 +45,7 @@ import hojas1 from '../assets/hojas-1.png';
       <img src={trigo1.src} alt="" class="wheat swaying-element wheat-tr-3" />
       <img src={hojas1.src} alt="" class="leaf swaying-element leaf-tr-1" />
       <img src={hojas1.src} alt="" class="leaf swaying-element leaf-tr-2" />
-      
+
       <!-- Esquina Inferior Izquierda -->
       <img src={trigo1.src} alt="" class="wheat swaying-element wheat-bl-1" />
       <img src={trigo1.src} alt="" class="wheat swaying-element wheat-bl-2" />
@@ -35,40 +53,103 @@ import hojas1 from '../assets/hojas-1.png';
       <img src={hojas1.src} alt="" class="leaf swaying-element leaf-bl-1" />
       <img src={hojas1.src} alt="" class="leaf swaying-element leaf-bl-2" />
     </div>
-    
+
     <!-- Contenedor de las imágenes de fondo animadas -->
     <div class="images-container">
-      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Boda 1" class="anim-image active" />
-      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Boda 2" class="anim-image" />
-      <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Boda 3" class="anim-image" />
+      <img
+        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+        alt="Boda 1"
+        class="anim-image active"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
+        alt="Boda 2"
+        class="anim-image"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80"
+        alt="Boda 3"
+        class="anim-image"
+      />
     </div>
 
     <!-- Contenedor central vacío -->
   </div>
+
+  <!-- NUEVA PANTALLA CÚPULA -->
+  <div class="cupula-section">
+    <!-- Flores esquina superior izquierda -->
+    <img src={flores5.src} alt="Flores esquina" class="cupula-tl-flowers" />
+
+    <div class="arch-container">
+      <p class="arch-pretitle">Con la bendición de Dios y nuestros padres</p>
+      <p class="arch-subtitle">¡Nos Casamos!</p>
+
+      <div class="arch-names-wrapper">
+        <span class="arch-ampersand">&</span>
+        <h2 class="arch-name">EDWIN</h2>
+        <h2 class="arch-name">VANEZA</h2>
+      </div>
+
+      <p class="arch-date">08 - 01 - 25</p>
+      <p class="arch-message">
+        Queremos compartir contigo el día más feliz de nuestras vidas.
+      </p>
+    </div>
+
+    <!-- Flores al final de la cúpula, ocupando todo el ancho de la sección -->
+    <img
+      src={flores4.src}
+      alt="Flores decorativas"
+      class="section-bottom-flowers"
+    />
+  </div>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const envelopeContainer = document.querySelector('.interactive-envelope-container');
-    const animationScreen = document.getElementById('image-animation-screen');
+  document.addEventListener("DOMContentLoaded", () => {
+    const envelopeContainer = document.querySelector(
+      ".interactive-envelope-container",
+    );
+    const animationScreen = document.getElementById("image-animation-screen");
     let currentImageIdx = 0;
-    const images = document.querySelectorAll('.anim-image');
+    const images = document.querySelectorAll(".anim-image");
     let intervalId: number;
 
     if (envelopeContainer && animationScreen) {
-      envelopeContainer.addEventListener('click', () => {
+      envelopeContainer.addEventListener("click", () => {
         // Fade in de la pantalla al dar clic al sobre
-        animationScreen.classList.add('visible');
-        
+        animationScreen.classList.add("visible");
+
         // Iniciar animación de imágenes si no está corriendo
         if (images.length > 0 && !intervalId) {
           intervalId = window.setInterval(() => {
-            images[currentImageIdx].classList.remove('active');
+            images[currentImageIdx].classList.remove("active");
             currentImageIdx = (currentImageIdx + 1) % images.length;
-            images[currentImageIdx].classList.add('active');
+            images[currentImageIdx].classList.add("active");
           }, 3500); // Cambiar imagen cada 3.5 segundos
         }
       });
+    }
+
+    // Animación al hacer scroll hacia la cúpula
+    const cupulaSection = document.querySelector(".cupula-section");
+    const archContainer = document.querySelector(".arch-container");
+
+    if (cupulaSection && archContainer) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              archContainer.classList.add("animate-in");
+              cupulaSection.classList.add("animate-in");
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+
+      observer.observe(cupulaSection);
     }
   });
 </script>
@@ -80,14 +161,15 @@ import hojas1 from '../assets/hojas-1.png';
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-bg-main, #FAF7F2);
+    background-color: var(--color-bg-main, #faf7f2);
     z-index: 1000;
     opacity: 0;
     pointer-events: none;
     transition: opacity 1s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block; /* Cambiado para permitir scroll */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
   .animation-screen.visible {
@@ -99,7 +181,7 @@ import hojas1 from '../assets/hojas-1.png';
   .frame-container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Se asegura de ocupar exactamente el viewport inicial */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,14 +214,14 @@ import hojas1 from '../assets/hojas-1.png';
     top: -45px;
     right: -45px;
     /* Al invertir horizontalmente, removemos el scaleX(-1) anterior */
-    transform: none; 
+    transform: none;
   }
 
   .corner-bl {
     bottom: -45px;
     left: -45px;
     /* Al invertir horizontalmente y verticalmente, equivale a rotar 180 grados */
-    transform: rotate(180deg); 
+    transform: rotate(180deg);
   }
 
   /* --- ELEMENTOS CON VIENTO --- */
@@ -181,23 +263,97 @@ import hojas1 from '../assets/hojas-1.png';
   }
 
   /* TR Trigo */
-  .wheat-tr-1 { top: -10px; right: 20px; width: 70px; --base-rot: -140deg; animation-duration: 7s; filter: blur(2px); }
-  .wheat-tr-2 { top: 20px; right: -10px; width: 85px; --base-rot: -100deg; animation-duration: 5.5s; animation-delay: -1s; filter: blur(4px); opacity: 0.7; }
-  .wheat-tr-3 { top: -15px; right: -15px; width: 100px; --base-rot: -125deg; animation-duration: 8s; animation-delay: -3s; filter: blur(3px); }
+  .wheat-tr-1 {
+    top: -10px;
+    right: 20px;
+    width: 70px;
+    --base-rot: -140deg;
+    animation-duration: 7s;
+    filter: blur(2px);
+  }
+  .wheat-tr-2 {
+    top: 20px;
+    right: -10px;
+    width: 85px;
+    --base-rot: -100deg;
+    animation-duration: 5.5s;
+    animation-delay: -1s;
+    filter: blur(4px);
+    opacity: 0.7;
+  }
+  .wheat-tr-3 {
+    top: -15px;
+    right: -15px;
+    width: 100px;
+    --base-rot: -125deg;
+    animation-duration: 8s;
+    animation-delay: -3s;
+    filter: blur(3px);
+  }
 
   /* TR Hojas */
-  .leaf-tr-1 { top: -5px; right: 15px; width: 65px; --base-rot: -150deg; animation-duration: 6s; }
-  .leaf-tr-2 { top: 15px; right: -5px; width: 80px; --base-rot: -90deg; animation-duration: 7.5s; animation-delay: -2s; }
+  .leaf-tr-1 {
+    top: -5px;
+    right: 15px;
+    width: 65px;
+    --base-rot: -150deg;
+    animation-duration: 6s;
+  }
+  .leaf-tr-2 {
+    top: 15px;
+    right: -5px;
+    width: 80px;
+    --base-rot: -90deg;
+    animation-duration: 7.5s;
+    animation-delay: -2s;
+  }
 
   /* BL Trigo */
-  .wheat-bl-1 { bottom: -10px; left: 20px; width: 75px; --base-rot: 40deg; animation-duration: 6.5s; animation-delay: -2s; filter: blur(2px); }
-  .wheat-bl-2 { bottom: 20px; left: -10px; width: 90px; --base-rot: 80deg; animation-duration: 5s; animation-delay: -4s; filter: blur(5px); opacity: 0.6; }
-  .wheat-bl-3 { bottom: -15px; left: -15px; width: 110px; --base-rot: 65deg; animation-duration: 7.5s; filter: blur(3px); }
+  .wheat-bl-1 {
+    bottom: -10px;
+    left: 20px;
+    width: 75px;
+    --base-rot: 40deg;
+    animation-duration: 6.5s;
+    animation-delay: -2s;
+    filter: blur(2px);
+  }
+  .wheat-bl-2 {
+    bottom: 20px;
+    left: -10px;
+    width: 90px;
+    --base-rot: 80deg;
+    animation-duration: 5s;
+    animation-delay: -4s;
+    filter: blur(5px);
+    opacity: 0.6;
+  }
+  .wheat-bl-3 {
+    bottom: -15px;
+    left: -15px;
+    width: 110px;
+    --base-rot: 65deg;
+    animation-duration: 7.5s;
+    filter: blur(3px);
+  }
 
   /* BL Hojas */
-  .leaf-bl-1 { bottom: -5px; left: 15px; width: 70px; --base-rot: 50deg; animation-duration: 6.2s; animation-delay: -1.5s; }
-  .leaf-bl-2 { bottom: 15px; left: -5px; width: 85px; --base-rot: 95deg; animation-duration: 7s; animation-delay: -3.5s; }
-
+  .leaf-bl-1 {
+    bottom: -5px;
+    left: 15px;
+    width: 70px;
+    --base-rot: 50deg;
+    animation-duration: 6.2s;
+    animation-delay: -1.5s;
+  }
+  .leaf-bl-2 {
+    bottom: 15px;
+    left: -5px;
+    width: 85px;
+    --base-rot: 95deg;
+    animation-duration: 7s;
+    animation-delay: -3.5s;
+  }
 
   .images-container {
     position: absolute;
@@ -217,11 +373,180 @@ import hojas1 from '../assets/hojas-1.png';
     object-fit: cover;
     opacity: 0;
     transform: scale(1.1); /* Inicio del efecto Ken Burns */
-    transition: opacity 1.5s ease-in-out, transform 5s linear;
+    transition:
+      opacity 1.5s ease-in-out,
+      transform 5s linear;
   }
 
   .anim-image.active {
     opacity: 1;
     transform: scale(1);
+  }
+
+  /* --- SECCIÓN CÚPULA --- */
+  .cupula-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-parchment);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 60px 0 0 0;
+    box-sizing: border-box;
+  }
+
+  .arch-container {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    background-color: var(--color-surface);
+    border-radius: 200px 200px 0 0;
+    border: none;
+    padding: 60px 24px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    position: relative; /* Para anclar las flores de abajo */
+  }
+
+  .arch-pretitle {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--color-text-muted);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .arch-subtitle {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--color-text-main);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+  }
+
+  .arch-names-wrapper {
+    position: relative;
+    text-align: center;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .arch-ampersand {
+    position: absolute;
+    font-family: var(--font-serif);
+    font-size: 130px;
+    font-style: italic;
+    color: var(--color-primary); /* Tono champagne */
+    opacity: 0.7;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .arch-name {
+    font-family: var(--font-serif);
+    font-size: 42px;
+    color: var(--color-text-main);
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .arch-date {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--color-text-main);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .arch-message {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    text-align: center;
+    max-width: 85%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-bottom-flowers {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 1;
+  }
+
+  .cupula-tl-flowers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px; /* Aumentado tamaño */
+    max-width: 60vw;
+    z-index: 20;
+    pointer-events: none;
+    transform-origin: top left;
+    animation: gentleWindTL 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes gentleWindTL {
+    0% {
+      transform: rotate(-2deg);
+    }
+    100% {
+      transform: rotate(4deg);
+    }
+  }
+
+  /* Animaciones de entrada en Scroll */
+  .arch-container > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 1.2s ease-out,
+      transform 1.2s ease-out;
+  }
+
+  .arch-container.animate-in > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .arch-container.animate-in .arch-pretitle {
+    transition-delay: 0.2s;
+  }
+  .arch-container.animate-in .arch-subtitle {
+    transition-delay: 0.4s;
+  }
+  .arch-container.animate-in .arch-names-wrapper {
+    transition-delay: 0.7s;
+  }
+  .arch-container.animate-in .arch-date {
+    transition-delay: 1s;
+  }
+  .arch-container.animate-in .arch-message {
+    transition-delay: 1.2s;
   }
 </style>
