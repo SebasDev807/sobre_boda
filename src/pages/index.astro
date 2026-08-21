@@ -117,7 +117,7 @@ import Envelope from '../components/Envelope.astro';
     font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
     letter-spacing: var(--tracking-widest);
-    color: var(--color-text-muted);
+    color: var(--color-text-main); /* Cambiado de muted a main para que sea más oscuro */
     text-transform: uppercase;
     margin-top: 0;
   }
@@ -133,7 +133,7 @@ import Envelope from '../components/Envelope.astro';
     font-size: var(--text-sm);
     line-height: var(--line-height-relaxed);
     color: var(--color-text-main);
-    opacity: 0.8;
+    /* Eliminada la opacidad para que se vea completamente oscuro */
   }
 
   /* Footer */
@@ -146,8 +146,7 @@ import Envelope from '../components/Envelope.astro';
     font-family: var(--font-serif);
     font-size: var(--text-lg);
     letter-spacing: var(--tracking-widest);
-    color: var(--color-text-muted);
-    opacity: 0.6;
+    color: var(--color-text-main); /* Cambiado a main para mayor legibilidad */
     margin: 0;
   }
 </style>

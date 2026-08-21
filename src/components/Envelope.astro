@@ -1,6 +1,8 @@
 ---
 // src/components/Envelope.astro
+import pointingFinger from '../assets/pointing-finger.svg';
 ---
+
 <div class="interactive-envelope-container">
   <div class="envelope">
     <div class="envelope-left"></div>
@@ -8,6 +10,11 @@
     <div class="envelope-bottom"></div>
     <div class="envelope-top"></div>
     <div class="wax-seal"></div>
+  </div>
+  
+  <!-- Indicador visual de clic (dedo) -->
+  <div class="click-indicator">
+    <img src={pointingFinger.src} alt="Clic aquí" width="96" height="96" />
   </div>
 </div>
 
@@ -22,22 +29,24 @@
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
-  
+
   .envelope {
     position: relative;
     width: 100%;
     max-width: 320px;
     height: 200px;
     background-color: var(--color-surface); /* Ivory/Marfil base */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     border-radius: 4px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .interactive-envelope-container:hover .envelope {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
   }
 
   /* Solapas del sobre */
@@ -50,9 +59,9 @@
     border-left: 160px solid transparent;
     border-right: 160px solid transparent;
     /* Un tono ligeramente más oscuro que parchment para dar profundidad a la solapa superior */
-    border-top: 110px solid #EAE3D7; 
+    border-top: 110px solid #eae3d7;
     z-index: 2;
-    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.05));
   }
 
   .envelope-bottom {
@@ -99,32 +108,79 @@
     transform: translate(-50%, -50%);
     width: 50px;
     height: 50px;
-    background-color: #4A3525; /* Café amaderado que hace juego con el logo */
+    background-color: #4a3525; /* Café amaderado que hace juego con el logo */
     border-radius: 50%;
     z-index: 3;
-    box-shadow: 
-      inset 0 0 8px rgba(0,0,0,0.6),
-      0 4px 8px rgba(0,0,0,0.2);
+    box-shadow:
+      inset 0 0 8px rgba(0, 0, 0, 0.6),
+      0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   /* Detalles del sello */
-  .wax-seal::after, .wax-seal::before {
-    content: '';
+  .wax-seal::after,
+  .wax-seal::before {
+    content: "";
     width: 30px;
     height: 18px;
-    border: 1.5px solid rgba(255,255,255,0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     position: absolute;
   }
-  
+
   .wax-seal::after {
     left: 6px;
   }
-  
+
   .wax-seal::before {
     right: 6px;
+  }
+
+  /* Estilos del indicador de clic (Dedo) - Flotante sobre el sobre */
+  .click-indicator {
+    position: absolute;
+    top: 130px; /* Cerca del sello de cera */
+    left: 55%; /* Ligeramente a la derecha del centro */
+    z-index: 20;
+    pointer-events: none; /* Para no bloquear clics */
+    opacity: 0; /* Comienza invisible */
+    /* Animación de 3 segundos, se queda en el estado final (forwards) */
+    animation: tapAndFade 3s ease-in-out forwards;
+    animation-delay: 1.5s; /* Esperar a que el sobre termine de aparecer */
+  }
+
+  @keyframes tapAndFade {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) rotate(-15deg);
+    }
+    15% {
+      opacity: 0.8;
+      transform: translateY(0) rotate(-15deg);
+    }
+    30% {
+      /* Levantar el dedo */
+      transform: translateY(-15px) rotate(-15deg);
+    }
+    40% {
+      /* Tocar el sobre (pequeño scale para efecto de presión) */
+      transform: translateY(0) rotate(-15deg) scale(0.95);
+    }
+    50% {
+      /* Levantar el dedo de nuevo */
+      transform: translateY(-15px) rotate(-15deg);
+    }
+    60% {
+      /* Segundo toque */
+      transform: translateY(0) rotate(-15deg) scale(0.95);
+      opacity: 0.8;
+    }
+    85%, 100% {
+      /* Desaparecer lentamente (Fade-out) */
+      opacity: 0;
+      transform: translateY(0) rotate(-15deg);
+    }
   }
 </style>
