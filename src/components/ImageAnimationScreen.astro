@@ -1,0 +1,227 @@
+---
+import marcoFlores from '../assets/flores_1.png';
+import cornerFlores from '../assets/flores_2.png';
+import cornerFlores3 from '../assets/flores_3.png';
+import trigo1 from '../assets/trigo_1.png';
+import hojas1 from '../assets/hojas-1.png';
+---
+
+<div id="image-animation-screen" class="animation-screen">
+  <div class="frame-container">
+    <!-- El marco de flores por encima de las imágenes -->
+    <img src={marcoFlores.src} alt="Marco decorativo" class="flower-frame" />
+    
+    <!-- Adornos de las esquinas -->
+    <img src={cornerFlores.src} alt="Esquina superior derecha" class="corner-flower corner-tr" />
+    <img src={cornerFlores.src} alt="Esquina inferior izquierda" class="corner-flower corner-bl" />
+    
+    <!-- Detalles extra de esquinas (flores_3) -->
+    <img src={cornerFlores3.src} alt="Detalle superior derecha" class="corner-flower corner-tr" />
+    <img src={cornerFlores3.src} alt="Detalle inferior izquierda" class="corner-flower corner-bl" />
+    
+    <!-- Elementos con animación de viento (trigo y hojas) -->
+    <div class="swaying-container">
+      <!-- Esquina Superior Derecha -->
+      <img src={trigo1.src} alt="" class="wheat swaying-element wheat-tr-1" />
+      <img src={trigo1.src} alt="" class="wheat swaying-element wheat-tr-2" />
+      <img src={trigo1.src} alt="" class="wheat swaying-element wheat-tr-3" />
+      <img src={hojas1.src} alt="" class="leaf swaying-element leaf-tr-1" />
+      <img src={hojas1.src} alt="" class="leaf swaying-element leaf-tr-2" />
+      
+      <!-- Esquina Inferior Izquierda -->
+      <img src={trigo1.src} alt="" class="wheat swaying-element wheat-bl-1" />
+      <img src={trigo1.src} alt="" class="wheat swaying-element wheat-bl-2" />
+      <img src={trigo1.src} alt="" class="wheat swaying-element wheat-bl-3" />
+      <img src={hojas1.src} alt="" class="leaf swaying-element leaf-bl-1" />
+      <img src={hojas1.src} alt="" class="leaf swaying-element leaf-bl-2" />
+    </div>
+    
+    <!-- Contenedor de las imágenes de fondo animadas -->
+    <div class="images-container">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Boda 1" class="anim-image active" />
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Boda 2" class="anim-image" />
+      <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Boda 3" class="anim-image" />
+    </div>
+
+    <!-- Contenedor central vacío -->
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const envelopeContainer = document.querySelector('.interactive-envelope-container');
+    const animationScreen = document.getElementById('image-animation-screen');
+    let currentImageIdx = 0;
+    const images = document.querySelectorAll('.anim-image');
+    let intervalId: number;
+
+    if (envelopeContainer && animationScreen) {
+      envelopeContainer.addEventListener('click', () => {
+        // Fade in de la pantalla al dar clic al sobre
+        animationScreen.classList.add('visible');
+        
+        // Iniciar animación de imágenes si no está corriendo
+        if (images.length > 0 && !intervalId) {
+          intervalId = window.setInterval(() => {
+            images[currentImageIdx].classList.remove('active');
+            currentImageIdx = (currentImageIdx + 1) % images.length;
+            images[currentImageIdx].classList.add('active');
+          }, 3500); // Cambiar imagen cada 3.5 segundos
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .animation-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-main, #FAF7F2);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .animation-screen.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Contenedor principal a pantalla completa */
+  .frame-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    overflow: hidden;
+  }
+
+  /* El marco de flores con z-index alto para estar sobre las fotos */
+  .flower-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* Decoraciones de esquinas */
+  .corner-flower {
+    position: absolute;
+    width: 250px; /* Tamaño base */
+    max-width: 45vw; /* Para que no cubra toda la pantalla en móviles */
+    z-index: 15; /* Sobre el marco y las fotos */
+    pointer-events: none;
+  }
+
+  .corner-tr {
+    top: -45px;
+    right: -45px;
+    /* Al invertir horizontalmente, removemos el scaleX(-1) anterior */
+    transform: none; 
+  }
+
+  .corner-bl {
+    bottom: -45px;
+    left: -45px;
+    /* Al invertir horizontalmente y verticalmente, equivale a rotar 180 grados */
+    transform: rotate(180deg); 
+  }
+
+  /* --- ELEMENTOS CON VIENTO --- */
+  .swaying-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 12; /* Entre las fotos de fondo y los marcos de flores */
+    overflow: hidden;
+  }
+
+  /* Clase genérica y reutilizable para el viento */
+  .swaying-element {
+    position: absolute;
+    --base-rot: 0deg;
+    transform-origin: bottom center;
+    animation: windSway 6s ease-in-out infinite alternate;
+  }
+
+  .wheat {
+    opacity: 0.85;
+  }
+
+  .leaf {
+    opacity: 0.95;
+    /* Las hojas no tienen blur para que queden nítidas */
+  }
+
+  @keyframes windSway {
+    0% {
+      transform: rotate(calc(var(--base-rot) - 5deg));
+    }
+    100% {
+      transform: rotate(calc(var(--base-rot) + 7deg));
+    }
+  }
+
+  /* TR Trigo */
+  .wheat-tr-1 { top: -10px; right: 20px; width: 70px; --base-rot: -140deg; animation-duration: 7s; filter: blur(2px); }
+  .wheat-tr-2 { top: 20px; right: -10px; width: 85px; --base-rot: -100deg; animation-duration: 5.5s; animation-delay: -1s; filter: blur(4px); opacity: 0.7; }
+  .wheat-tr-3 { top: -15px; right: -15px; width: 100px; --base-rot: -125deg; animation-duration: 8s; animation-delay: -3s; filter: blur(3px); }
+
+  /* TR Hojas */
+  .leaf-tr-1 { top: -5px; right: 15px; width: 65px; --base-rot: -150deg; animation-duration: 6s; }
+  .leaf-tr-2 { top: 15px; right: -5px; width: 80px; --base-rot: -90deg; animation-duration: 7.5s; animation-delay: -2s; }
+
+  /* BL Trigo */
+  .wheat-bl-1 { bottom: -10px; left: 20px; width: 75px; --base-rot: 40deg; animation-duration: 6.5s; animation-delay: -2s; filter: blur(2px); }
+  .wheat-bl-2 { bottom: 20px; left: -10px; width: 90px; --base-rot: 80deg; animation-duration: 5s; animation-delay: -4s; filter: blur(5px); opacity: 0.6; }
+  .wheat-bl-3 { bottom: -15px; left: -15px; width: 110px; --base-rot: 65deg; animation-duration: 7.5s; filter: blur(3px); }
+
+  /* BL Hojas */
+  .leaf-bl-1 { bottom: -5px; left: 15px; width: 70px; --base-rot: 50deg; animation-duration: 6.2s; animation-delay: -1.5s; }
+  .leaf-bl-2 { bottom: 15px; left: -5px; width: 85px; --base-rot: 95deg; animation-duration: 7s; animation-delay: -3.5s; }
+
+
+  .images-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .anim-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.1); /* Inicio del efecto Ken Burns */
+    transition: opacity 1.5s ease-in-out, transform 5s linear;
+  }
+
+  .anim-image.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+</style>
