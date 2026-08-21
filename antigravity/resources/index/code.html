@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Invitación de Boda</title>
+<!-- Include Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Include Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Montserrat:wght@400;600&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration for Custom Colors and Fonts -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'wedding-bg': '#fcf4f4',
+            'wedding-brown': '#6d3c36',
+            'wedding-text': '#5a5a5a',
+            'envelope-cream': '#f8f5f0',
+          },
+          fontFamily: {
+            'script': ['"Great Vibes"', 'cursive'],
+            'sans': ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for specific elements -->
+<style data-purpose="custom-styling">
+    body {
+      background-color: #f5f5f5; /* Outer background to simulate phone frame */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    
+    /* Simulate mobile device screen */
+    .mobile-frame {
+      width: 100%;
+      max-width: 414px; /* iPhone Max width approximately */
+      height: 100vh;
+      max-height: 896px;
+      background-color: theme('colors.wedding-bg');
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 640px) {
+      .mobile-frame {
+        height: 896px;
+        border-radius: 40px;
+        border: 12px solid white;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      }
+    }
+
+    /* Envelope CSS Art */
+    .envelope {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      height: 200px;
+      background-color: #f8f5f0;
+      margin: 0 auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .envelope:hover {
+      transform: scale(1.02);
+    }
+
+    /* Envelope Flaps */
+    .envelope::before, .envelope::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    /* Top Flap */
+    .envelope-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 160px solid transparent;
+      border-right: 160px solid transparent;
+      border-top: 110px solid #f2eadc; /* Slightly darker for depth */
+      z-index: 2;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));
+    }
+
+    /* Bottom Flap */
+    .envelope-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 160px solid transparent;
+      border-right: 160px solid transparent;
+      border-bottom: 90px solid #f8f5f0;
+      z-index: 1;
+    }
+
+    /* Side Flaps */
+    .envelope-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-top: 100px solid transparent;
+      border-bottom: 100px solid transparent;
+      border-left: 160px solid #f5f1e8;
+      z-index: 1;
+    }
+
+    .envelope-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 100px solid transparent;
+      border-bottom: 100px solid transparent;
+      border-right: 160px solid #f5f1e8;
+      z-index: 1;
+    }
+
+    /* Wax Seal */
+    .wax-seal {
+      position: absolute;
+      top: 110px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background-color: theme('colors.wedding-brown');
+      border-radius: 50%;
+      z-index: 3;
+      box-shadow: 
+        inset 0 0 5px rgba(0,0,0,0.5),
+        0 4px 6px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wax-seal::after {
+      content: '';
+      width: 24px;
+      height: 14px;
+      border: 1.5px solid rgba(255,255,255,0.7);
+      border-radius: 50%;
+      position: absolute;
+      left: 4px;
+    }
+    
+    .wax-seal::before {
+      content: '';
+      width: 24px;
+      height: 14px;
+      border: 1.5px solid rgba(255,255,255,0.7);
+      border-radius: 50%;
+      position: absolute;
+      right: 4px;
+    }
+  </style>
+</head>
+<body class="antialiased text-wedding-text font-sans" style="background-color: rgb(244, 217, 195); color: rgb(107, 90, 86);">
+<!-- BEGIN: Mobile Container -->
+<main class="mobile-frame pt-12 pb-6 px-6 flex flex-col justify-between" style="background-color: rgb(244, 217, 195);">
+<!-- Top Content Section -->
+<section class="flex flex-col items-center text-center space-y-8 flex-grow">
+<!-- BEGIN: Monogram Logo -->
+<div class="relative w-36 h-36 rounded-full bg-wedding-brown flex justify-center items-center shadow-lg border-4 border-white/50">
+<!-- Using a stylized text representation for the monogram -->
+<div class="relative">
+<span class="font-script text-6xl text-white/40 absolute -left-6 -top-6">8</span>
+<span class="font-serif text-5xl text-white opacity-80 z-10 relative">J</span>
+<span class="font-serif text-4xl text-white/90 z-20 relative -ml-2 -mt-4 block">M</span>
+</div>
+</div>
+<!-- END: Monogram Logo -->
+<!-- BEGIN: Guest Info -->
+<div class="space-y-3 pt-4">
+<h1 class="font-script text-4xl text-wedding-text tracking-wide">
+          Sra. Daniela Garcia
+        </h1>
+<p class="font-sans font-semibold text-sm tracking-wider text-wedding-text/80">
+          Cupos: 3 - Mesa: 4
+        </p>
+</div>
+<!-- END: Guest Info -->
+<!-- BEGIN: Romantic Message -->
+<div class="px-4">
+<p class="text-sm leading-relaxed text-wedding-text/80">
+          Este sueño no estaría completo sin ti.<br>
+          ¡Haz clic en el sobre y acompáñanos en nuestra<br>
+          historia de amor!
+        </p>
+</div>
+<!-- END: Romantic Message -->
+<!-- BEGIN: Interactive Envelope -->
+<div class="w-full mt-8 flex justify-center cursor-pointer hover:opacity-90 transition-opacity">
+<div class="envelope">
+<div class="envelope-left"></div>
+<div class="envelope-right"></div>
+<div class="envelope-bottom"></div>
+<div class="envelope-top"></div>
+<div class="wax-seal" style="background: none; box-shadow: none; width: 60px; height: 60px; top: 110px;"></div>
+</div>
+</div>
+<!-- END: Interactive Envelope -->
+</section>
+<!-- BEGIN: Footer URL -->
+<footer class="mt-8 text-center pb-2">
+<a class="text-xs font-semibold tracking-widest text-wedding-text/60 flex justify-center items-center gap-1 hover:text-wedding-text transition-colors" href="#"><br></a>
+</footer>
+<!-- END: Footer URL -->
+</main>
+<!-- END: Mobile Container -->
+
+
+
+
+</body></html>

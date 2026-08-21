@@ -1,0 +1,17 @@
+:root {
+  --color-bg-main: #FDFBF7;       /* Blanco cálido */
+  --color-surface: #F8F5F0;       /* Marfil/Ivory */
+  --color-parchment: #EFE9E1;     /* Pergamino */
+  --color-text-main: #2C2926;     /* Tono oscuro elegante */
+  --color-text-muted: #8A817C;    /* Gris cálido/taupe suave */
+  --color-primary: #D4C5B3;       /* Champagne sutil */
+  --color-button: #E3D8C8;        /* Botones champagne */
+  --color-button-hover: #D4C5B3;  /* Hover de botones */
+  --color-border: #D9D1C7;        /* Bordes y separadores */
+  --color-accent: #C5A880;        /* Dorado apagado (detalles) */
+}
+
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+}
