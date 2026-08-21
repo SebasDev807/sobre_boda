@@ -1,0 +1,60 @@
+---
+// src/components/Logo.astro
+---
+<div class="logo-wrapper">
+  <div class="logo-circle">
+    <span class="letter-e">E</span>
+    <span class="ampersand">&amp;</span>
+    <span class="letter-v">V</span>
+  </div>
+</div>
+
+<style>
+  .logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .logo-circle {
+    position: relative;
+    width: 144px;
+    height: 144px;
+    border-radius: 50%;
+    background-color: #4A3525; /* Café elegante y amaderado oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 4px solid rgba(255, 255, 255, 0.5);
+  }
+  .letter-e {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    color: white;
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    z-index: 10;
+    font-weight: var(--weight-regular);
+  }
+  .ampersand {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    color: rgba(255, 255, 255, 0.15);
+    position: absolute;
+    font-style: italic;
+    z-index: 5;
+    font-weight: var(--weight-light);
+  }
+  .letter-v {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    color: white;
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+    z-index: 10;
+    font-weight: var(--weight-regular);
+  }
+</style>

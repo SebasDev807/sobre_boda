@@ -139,3 +139,22 @@ button, .btn {
 button:hover, .btn:hover {
   background-color: var(--color-button-hover);
 }
+
+/* --- Animaciones Reutilizables --- */
+
+/* Animación de entrada (Fade in progresivo) */
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
