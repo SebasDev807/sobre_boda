@@ -15,8 +15,8 @@ import './index.css';
         </div>
         
         <div class="guest-info fade-in" style="animation-delay: 0.3s;">
-          <h1 class="guest-name">Sra. Daniela Garcia</h1>
-          <p class="guest-details">Cupos: 3 &mdash; Mesa: 4</p>
+          <h1 class="guest-name" id="index-guest-name">Sra. Daniela Garcia</h1>
+          <p class="guest-details" id="index-guest-details">CUPOS: 3 &mdash; MESA: 4</p>
         </div>
         
         <div class="message fade-in" style="animation-delay: 0.5s;">
@@ -39,3 +39,38 @@ import './index.css';
     <ImageAnimationScreen />
   </div>
 </Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const invitado = urlParams.get("invitado");
+    const genero = urlParams.get("g");
+    const cupos = urlParams.get("cupos");
+    const mesa = urlParams.get("mesa");
+
+    if (invitado) {
+      let prefijo = "";
+      if (genero) {
+        const g = genero.toUpperCase();
+        if (g === "M") prefijo = "Sr. ";
+        else if (g === "F") prefijo = "Sra. ";
+      }
+      
+      const nameEl = document.getElementById("index-guest-name");
+      if (nameEl) {
+        nameEl.textContent = `${prefijo}${invitado}`;
+      }
+    }
+
+    const detailsEl = document.getElementById("index-guest-details");
+    if (detailsEl) {
+      if (cupos && mesa) {
+        detailsEl.innerHTML = `CUPOS: ${cupos} &mdash; MESA: ${mesa}`;
+      } else if (cupos) {
+        detailsEl.innerHTML = `CUPOS: ${cupos}`;
+      } else if (mesa) {
+        detailsEl.innerHTML = `MESA: ${mesa}`;
+      }
+    }
+  });
+</script>

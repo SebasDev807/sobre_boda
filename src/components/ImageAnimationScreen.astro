@@ -60,7 +60,7 @@ import './styles/ImageAnimationScreen.css';
     <div class="messages-container">
       <img src={colibri.src} alt="Colibrí" class="colibri-gif" />
       <div class="anim-message active">
-        <h2>Unidos por el amor</h2>
+        <h2 id="dynamic-greeting">Unidos por el amor</h2>
       </div>
       <div class="anim-message">
         <h2>Para toda la vida</h2>
@@ -105,6 +105,25 @@ import './styles/ImageAnimationScreen.css';
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    // Parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const invitado = urlParams.get("invitado");
+    const genero = urlParams.get("g");
+
+    if (invitado) {
+      let prefijo = "";
+      if (genero) {
+        const g = genero.toUpperCase();
+        if (g === "M") prefijo = "Sr. ";
+        else if (g === "F") prefijo = "Sra. ";
+      }
+
+      const greetingElement = document.getElementById("dynamic-greeting");
+      if (greetingElement) {
+        greetingElement.textContent = `¡Hola ${prefijo}${invitado}!`;
+      }
+    }
+
     const envelopeContainer = document.querySelector(
       ".interactive-envelope-container",
     );
