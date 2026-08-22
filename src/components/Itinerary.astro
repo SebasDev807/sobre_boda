@@ -1,0 +1,175 @@
+---
+import './styles/Itinerary.css';
+---
+
+<section class="itinerary-section">
+  <h2 class="section-title fade-up">Itinerario</h2>
+  
+  <div class="timeline-container fade-up">
+    <!-- Línea central -->
+    <div class="timeline-line"></div>
+
+    <!-- 2:00 pm -->
+    <div class="timeline-item left-aligned">
+      <div class="timeline-content">
+        <p class="timeline-desc">Sí, quiero! Religioso</p>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">
+        <span class="material-symbols-outlined icon">church</span>
+        <p>2:00 pm</p>
+      </div>
+    </div>
+
+    <!-- 3:40 pm -->
+    <div class="timeline-item right-aligned">
+      <div class="timeline-time">
+        <p>3:40 pm</p>
+        <span class="material-symbols-outlined icon">directions_bus</span>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-desc">Paseo en chiva</p>
+      </div>
+    </div>
+
+    <!-- 5:30 pm -->
+    <div class="timeline-item left-aligned">
+      <div class="timeline-content">
+        <p class="timeline-desc">Cocktail bienvenida</p>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">
+        <span class="material-symbols-outlined icon">local_bar</span>
+        <p>5:30 pm - 6:40 pm</p>
+      </div>
+    </div>
+
+    <!-- 7:00 pm -->
+    <div class="timeline-item right-aligned">
+      <div class="timeline-time">
+        <p>7:00 pm</p>
+        <span class="material-symbols-outlined icon">favorite</span>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-desc">Novios entrada triunfal</p>
+      </div>
+    </div>
+
+    <!-- 7:30 pm -->
+    <div class="timeline-item left-aligned">
+      <div class="timeline-content">
+        <p class="timeline-desc">Presentación carnaval típica</p>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">
+        <span class="material-symbols-outlined icon">masks</span>
+        <p>7:30 pm</p>
+      </div>
+    </div>
+
+    <!-- 8:00 pm -->
+    <div class="timeline-item right-aligned">
+      <div class="timeline-time">
+        <p>8:00 pm - 9:00 pm</p>
+        <span class="material-symbols-outlined icon">restaurant</span>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-desc">Cena</p>
+      </div>
+    </div>
+
+    <!-- 9:30 pm -->
+    <div class="timeline-item left-aligned">
+      <div class="timeline-content">
+        <p class="timeline-desc">Hora del cake: Palabras de familia</p>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">
+        <span class="material-symbols-outlined icon">cake</span>
+        <p>9:30 pm</p>
+      </div>
+    </div>
+
+    <!-- 10:00 pm -->
+    <div class="timeline-item right-aligned">
+      <div class="timeline-time">
+        <p>10:00 pm</p>
+        <span class="material-symbols-outlined icon">celebration</span>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-desc">Brindis</p>
+      </div>
+    </div>
+
+    <!-- 10:15 pm -->
+    <div class="timeline-item left-aligned">
+      <div class="timeline-content">
+        <p class="timeline-desc">Presentación carnaval salsa</p>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">
+        <span class="material-symbols-outlined icon">accessibility_new</span>
+        <p>10:15 pm</p>
+      </div>
+    </div>
+
+    <!-- 10:30 pm -->
+    <div class="timeline-item right-aligned">
+      <div class="timeline-time">
+        <p>10:30 pm</p>
+        <span class="material-symbols-outlined icon">wc</span>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-desc">Baile de novios</p>
+      </div>
+    </div>
+
+    <!-- 11:00 pm -->
+    <div class="timeline-item left-aligned">
+      <div class="timeline-content">
+        <p class="timeline-desc">Hora loca</p>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">
+        <span class="material-symbols-outlined icon">nightlife</span>
+        <p>11:00 pm</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="itinerary-footer fade-up">
+    <h3 class="footer-title">Nuestro Amor</h3>
+    <p class="footer-quote">"Quiero estar contigo, ahora y para siempre"</p>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const itinerarySection = document.querySelector('.itinerary-section');
+    if (itinerarySection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-on-scroll');
+            
+            // Animar elementos de la línea de tiempo uno por uno
+            const items = entry.target.querySelectorAll('.timeline-item');
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add('visible');
+              }, index * 200); // 200ms de retraso entre cada elemento
+            });
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      observer.observe(itinerarySection);
+    }
+  });
+</script>

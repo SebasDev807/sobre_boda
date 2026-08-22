@@ -1,0 +1,77 @@
+---
+import './styles/PartyDetails.css';
+import flor6 from '../assets/flor_6.png';
+---
+
+<section class="party-details-section">
+  <!-- Flores laterales -->
+  <img src={flor6.src} alt="" class="flower flower-side flower-left" />
+  <img src={flor6.src} alt="" class="flower flower-side flower-right" />
+
+  <h2 class="section-title fade-up">Nuestra Fiesta</h2>
+  <p class="section-subtitle fade-up">Detalles para tener en cuenta el día de la boda.</p>
+  
+  <div class="details-card fade-up">
+    
+    <!-- Dress Code -->
+    <div class="party-item dress-code-item">
+      <h3 class="party-title">Dress Code</h3>
+      
+      <div class="dress-code-grid">
+        <span class="dress-label">Mujeres</span>
+        <span class="dress-divider">---</span>
+        <span class="dress-label">Hombres</span>
+        
+        <span class="dress-value">Vestido formal</span>
+        <span class="dress-divider">---</span>
+        <span class="dress-value">Vestido formal</span>
+      </div>
+
+      <div class="party-icon-wrapper">
+        <span class="material-symbols-outlined icon">draw</span>
+      </div>
+      
+      <p class="party-text">Inspírate en los siguientes looks</p>
+      
+      <a href="https://co.pinterest.com/search/pins/?q=trajes%20elegantes%20boda%20serios%20hombre%20y%20mujer&rs=typed" target="_blank" rel="noopener noreferrer" class="btn btn-action">
+        Sugerencias
+      </a>
+    </div>
+
+    <div class="party-divider"></div>
+
+    <!-- Música -->
+    <div class="party-item music-item">
+      <h3 class="party-title">Música</h3>
+      
+      <div class="party-icon-wrapper">
+        <span class="material-symbols-outlined icon">music_note</span>
+      </div>
+      
+      <p class="party-text">¿Qué canción no puede faltar en la fiesta?</p>
+      
+      <!-- Se puede reemplazar con un enlace a un form de Spotify o Google Forms -->
+      <a href="#" class="btn btn-secondary">
+        Sugerir Canción
+      </a>
+    </div>
+    
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const partySection = document.querySelector('.party-details-section');
+    if (partySection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-on-scroll');
+          }
+        });
+      }, { threshold: 0.15 });
+      
+      observer.observe(partySection);
+    }
+  });
+</script>

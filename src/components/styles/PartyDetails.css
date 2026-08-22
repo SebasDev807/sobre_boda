@@ -1,0 +1,226 @@
+.party-details-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+  box-sizing: border-box;
+  background-color: var(--color-bg-main);
+  overflow: hidden;
+}
+
+.section-subtitle {
+  position: relative;
+  z-index: 4;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--color-text-main);
+  margin-bottom: 3rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.flower-side {
+  position: absolute;
+  top: 50%;
+  width: 55vh;
+  height: auto;
+  opacity: 0.95;
+  filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.1));
+  z-index: 3;
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+.flower-left {
+  left: -8vw; /* Empujado un poco más */
+  transform: translate(-50%, -50%) rotate(75deg); /* Rotación hacia afuera */
+}
+
+.flower-right {
+  right: -8vw; /* Empujado un poco más */
+  transform: translate(50%, -50%) rotate(-75deg); /* Rotación hacia afuera */
+}
+
+/* Reutilizando diseño de detalles-card */
+.party-details-section .details-card {
+  position: relative;
+  z-index: 2; /* Fondo de la tarjeta */
+  background-color: var(--color-surface);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(44, 41, 38, 0.12);
+  width: 100%;
+  max-width: 400px;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.party-item {
+  position: relative;
+  z-index: 4; /* Contenido del texto por encima de las flores */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.section-title {
+  position: relative;
+  z-index: 4;
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+}
+
+.party-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+}
+
+/* Grid para Dress Code */
+.dress-code-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.dress-label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-main);
+  opacity: 0.9;
+}
+
+.dress-divider {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.dress-value {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--color-text-main);
+}
+
+.party-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(44, 41, 38, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+.party-icon-wrapper:hover {
+  background-color: rgba(44, 41, 38, 0.05);
+}
+
+.party-icon-wrapper .icon {
+  font-size: 28px;
+  color: var(--color-text-main);
+}
+
+.party-text {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--color-text-main);
+  margin-bottom: 1.5rem;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-main);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  border: 1px solid var(--color-text-main);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-text-main);
+  color: var(--color-bg-main);
+}
+
+.btn-action {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.party-divider {
+  width: 80px;
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 3rem 0;
+}
+
+/* Animaciones idénticas a detalles */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.party-details-section.animate-on-scroll .fade-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.party-item > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.party-divider {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.party-details-section.animate-on-scroll .dress-code-item .party-title { transition-delay: 0.4s; }
+.party-details-section.animate-on-scroll .dress-code-item .dress-code-grid { transition-delay: 0.6s; }
+.party-details-section.animate-on-scroll .dress-code-item .party-icon-wrapper { transition-delay: 0.8s; }
+.party-details-section.animate-on-scroll .dress-code-item .party-text { transition-delay: 1.0s; }
+.party-details-section.animate-on-scroll .dress-code-item .btn-action { transition-delay: 1.2s; }
+
+.party-details-section.animate-on-scroll .party-divider { transition-delay: 1.4s; opacity: 1;}
+
+.party-details-section.animate-on-scroll .music-item .party-title { transition-delay: 1.6s; }
+.party-details-section.animate-on-scroll .music-item .party-icon-wrapper { transition-delay: 1.8s; }
+.party-details-section.animate-on-scroll .music-item .party-text { transition-delay: 2.0s; }
+.party-details-section.animate-on-scroll .music-item .btn-secondary { transition-delay: 2.2s; }
+
+.party-details-section.animate-on-scroll .party-item > * {
+  opacity: 1;
+  transform: translateY(0);
+}

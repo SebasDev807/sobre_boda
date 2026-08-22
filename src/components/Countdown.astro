@@ -5,11 +5,11 @@ import flores2 from '../assets/flores_4.png';
 ---
 
 <section class="countdown-section">
-  <div class="countdown-intro-text fade-in">
+  <div class="countdown-intro-text">
     <p>El amor que ha crecido en nosotros desde la primera vez que nos conocimos, nos ha llevado hoy a buscar en Dios la gracia para formar una familia y un hogar santo. Por esta razón después de 7 años de noviazgo hemos decidido casarnos y compartir con las personas mas especiales para nosotros, esta gran felicidad.</p>
   </div>
 
-  <div class="countdown-card fade-in">
+  <div class="countdown-card">
     <div class="countdown-inner-border"></div>
     <!-- Contenedor de flores que se ajusta a la tarjeta -->
     <div class="flowers-wrapper">
@@ -81,5 +81,20 @@ import flores2 from '../assets/flores_4.png';
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // Observer para la animación al hacer scroll
+    const countdownSection = document.querySelector('.countdown-section');
+    if (countdownSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-on-scroll');
+            // Opcional: observer.unobserve(entry.target) si solo quieres que se anime una vez
+          }
+        });
+      }, { threshold: 0.3 });
+      
+      observer.observe(countdownSection);
+    }
   });
 </script>
