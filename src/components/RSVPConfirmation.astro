@@ -1,8 +1,8 @@
 ---
-import './styles/RSVPConfirmation.css';
-import colibri from '../assets/colibri.gif';
-import flores4 from '../assets/flores_4.png';
-import flores5 from '../assets/flores_5.png';
+import "./styles/RSVPConfirmation.css";
+import colibri from "../assets/colibri.gif";
+import flores4 from "../assets/flores_4.png";
+import flores5 from "../assets/flores_5.png";
 ---
 
 <section class="rsvp-section">
@@ -10,15 +10,14 @@ import flores5 from '../assets/flores_5.png';
   <img src={flores5.src} alt="" class="rsvp-flower rsvp-flower-tl" />
 
   <div class="rsvp-card">
-
     <!-- Texto superior -->
     <p class="rsvp-tagline">Con todo nuestro amor</p>
-    <h2 class="rsvp-title">¿Nos confirmas<br/>tu asistencia?</h2>
+    <h2 class="rsvp-title">¿Nos confirmas<br />tu asistencia?</h2>
     <div class="rsvp-divider"></div>
 
     <p class="rsvp-body">
       Para nosotros es muy importante contar contigo en este día tan especial.
-      Por favor confírmanos antes del <strong>30 de julio de 2026</strong>.
+      Por favor confírmanos tu asistencia
     </p>
 
     <!-- Botones -->
@@ -32,17 +31,7 @@ import flores5 from '../assets/flores_5.png';
       >
         ✓ Confirmar asistencia
       </a>
-      <a
-        href="https://wa.me/573000000000?text=Hola%2C+lamentablemente+no+podr%C3%A9+asistir+a+su+boda."
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-rsvp-decline"
-        id="rsvp-decline-btn"
-      >
-        No podré asistir
-      </a>
     </div>
-
   </div>
 
   <!-- Colibrí al final de la página -->
@@ -55,16 +44,19 @@ import flores5 from '../assets/flores_5.png';
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const rsvpSection = document.querySelector('.rsvp-section');
+  document.addEventListener("DOMContentLoaded", () => {
+    const rsvpSection = document.querySelector(".rsvp-section");
     if (rsvpSection) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-on-scroll');
-          }
-        });
-      }, { threshold: 0.1 });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-on-scroll");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
       observer.observe(rsvpSection);
     }
   });
