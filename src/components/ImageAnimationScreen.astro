@@ -55,23 +55,17 @@ import './styles/ImageAnimationScreen.css';
       <img src={hojas1.src} alt="" class="leaf swaying-element leaf-bl-2" />
     </div>
 
-    <!-- Contenedor de las imágenes de fondo animadas -->
-    <div class="images-container">
-      <img
-        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
-        alt="Boda 1"
-        class="anim-image active"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
-        alt="Boda 2"
-        class="anim-image"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80"
-        alt="Boda 3"
-        class="anim-image"
-      />
+    <!-- Contenedor de los mensajes animados -->
+    <div class="messages-container">
+      <div class="anim-message active">
+        <h2>Unidos por el amor</h2>
+      </div>
+      <div class="anim-message">
+        <h2>Para toda la vida</h2>
+      </div>
+      <div class="anim-message">
+        <h2>Acompáñanos a celebrar</h2>
+      </div>
     </div>
 
     <!-- Contenedor central vacío -->
@@ -113,8 +107,8 @@ import './styles/ImageAnimationScreen.css';
       ".interactive-envelope-container",
     );
     const animationScreen = document.getElementById("image-animation-screen");
-    let currentImageIdx = 0;
-    const images = document.querySelectorAll(".anim-image");
+    let currentMessageIdx = 0;
+    const messages = document.querySelectorAll(".anim-message");
     let intervalId: number;
 
     if (envelopeContainer && animationScreen) {
@@ -122,13 +116,13 @@ import './styles/ImageAnimationScreen.css';
         // Fade in de la pantalla al dar clic al sobre
         animationScreen.classList.add("visible");
 
-        // Iniciar animación de imágenes si no está corriendo
-        if (images.length > 0 && !intervalId) {
+        // Iniciar animación de mensajes si no está corriendo
+        if (messages.length > 0 && !intervalId) {
           intervalId = window.setInterval(() => {
-            images[currentImageIdx].classList.remove("active");
-            currentImageIdx = (currentImageIdx + 1) % images.length;
-            images[currentImageIdx].classList.add("active");
-          }, 3500); // Cambiar imagen cada 3.5 segundos
+            messages[currentMessageIdx].classList.remove("active");
+            currentMessageIdx = (currentMessageIdx + 1) % messages.length;
+            messages[currentMessageIdx].classList.add("active");
+          }, 3500); // Cambiar mensaje cada 3.5 segundos
         }
       });
     }
