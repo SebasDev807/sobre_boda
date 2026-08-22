@@ -1,0 +1,76 @@
+---
+import './styles/Countdown.css';
+import flores1 from '../assets/flores_1.png';
+import flores2 from '../assets/flores_4.png';
+import hojas1 from '../assets/hojas-1.png';
+---
+
+<section class="countdown-section">
+  <!-- Flores decorativas -->
+  <img src={flores1.src} alt="" class="flower flower-top-left" />
+  <img src={flores2.src} alt="" class="flower flower-bottom-right" />
+  <img src={hojas1.src} alt="" class="flower leaf-top-right" />
+
+  <div class="countdown-card fade-in">
+    <div class="countdown-inner-border"></div>
+    <h2 class="countdown-date">9 DE NOVIEMBRE, 2025</h2>
+    <p class="countdown-label">F A L T A N</p>
+    
+    <div class="countdown-grid">
+      <div class="countdown-item">
+        <span class="countdown-value" id="days">00</span>
+        <span class="countdown-unit">Días</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-value" id="hours">00</span>
+        <span class="countdown-unit">Horas</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-value" id="minutes">00</span>
+        <span class="countdown-unit">Minutos</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-value" id="seconds">00</span>
+        <span class="countdown-unit">Segundos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Fecha objetivo: 9 de noviembre de 2025
+    const targetDate = new Date('2025-11-09T00:00:00').getTime();
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        if(daysEl) daysEl.textContent = '00';
+        if(hoursEl) hoursEl.textContent = '00';
+        if(minutesEl) minutesEl.textContent = '00';
+        if(secondsEl) secondsEl.textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if(daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+      if(hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+      if(minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+      if(secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  });
+</script>

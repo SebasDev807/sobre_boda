@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Logo from '../components/Logo.astro';
-import Envelope from '../components/Envelope.astro';
-import ImageAnimationScreen from '../components/ImageAnimationScreen.astro';
-import './index.css';
+import Layout from "../layouts/Layout.astro";
+import Logo from "../components/Logo.astro";
+import Envelope from "../components/Envelope.astro";
+import ImageAnimationScreen from "../components/ImageAnimationScreen.astro";
+import "./index.css";
 ---
 
 <Layout title="Invitación de Boda - E & V">
@@ -13,25 +13,27 @@ import './index.css';
         <div class="fade-in" style="animation-delay: 0.1s;">
           <Logo />
         </div>
-        
+
         <div class="guest-info fade-in" style="animation-delay: 0.3s;">
           <h1 class="guest-name" id="index-guest-name">Sra. Daniela Garcia</h1>
-          <p class="guest-details" id="index-guest-details">CUPOS: 3 &mdash; MESA: 4</p>
+          <p class="guest-details" id="index-guest-details">
+            CUPOS: 3 &mdash; MESA: 4
+          </p>
         </div>
-        
+
         <div class="message fade-in" style="animation-delay: 0.5s;">
           <p>
-            Este sueño no estaría completo sin ti.<br/>
-            ¡Haz clic en el sobre y acompáñanos en nuestra<br/>
+            Este sueño no estaría completo sin ti.<br />
+            ¡Haz clic en el sobre y acompáñanos en nuestra<br />
             historia de amor!
           </p>
         </div>
-        
+
         <div class="fade-in" style="width: 100%; animation-delay: 0.7s;">
           <Envelope />
         </div>
       </section>
-      
+
       <footer class="footer fade-in" style="animation-delay: 0.9s;">
         <p>E &amp; V</p>
       </footer>
@@ -55,7 +57,7 @@ import './index.css';
         if (g === "M") prefijo = "Sr. ";
         else if (g === "F") prefijo = "Sra. ";
       }
-      
+
       const nameEl = document.getElementById("index-guest-name");
       if (nameEl) {
         nameEl.textContent = `${prefijo}${invitado}`;
