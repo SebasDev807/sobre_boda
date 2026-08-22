@@ -142,11 +142,12 @@ import './styles/ImageAnimationScreen.css';
     const genero = urlParams.get("g");
 
     if (invitado) {
-      let prefijo = "";
+      let prefijo = "Sr. "; // Por defecto
       if (genero) {
         const g = genero.toUpperCase();
-        if (g === "M") prefijo = "Sr. ";
-        else if (g === "F") prefijo = "Sra. ";
+        if      (g === "M")  prefijo = "Sr. ";
+        else if (g === "F")  prefijo = "Sra. ";
+        else if (g === "FM") prefijo = "Familia ";
       }
 
       const greetingElement = document.getElementById("dynamic-greeting");
