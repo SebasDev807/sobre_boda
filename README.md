@@ -1,46 +1,51 @@
-# Astro Starter Kit: Basics
+# Invitación de Boda Digital - Edwin & Vaneza 💍
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Esta es una aplicación web interactiva desarrollada con **Astro** para la invitación digital de una boda. Diseñada con un enfoque moderno, elegante y "mobile-first", proporciona a los invitados toda la información necesaria para el gran día a través de una experiencia fluida e interactiva.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🌟 Características Principales
 
-## 🚀 Project Structure
+- **Invitaciones Personalizadas**: El enlace de la invitación puede recibir parámetros por URL para personalizar el saludo, los cupos y el número de mesa del invitado (ej: `?invitado=Familia%20Perez&cupos=3&mesa=4&g=M`).
+- **Sobre Interactivo**: Al abrir la aplicación, los invitados son recibidos con una animación de un sobre sellado que se abre al hacer clic, desplegando el resto de las secciones.
+- **Scroll Suave (Scroll Snap)**: Las distintas secciones de información están diseñadas para ajustarse perfectamente a la pantalla mediante CSS Scroll Snap, haciendo el desplazamiento mucho más cómodo y guiado en dispositivos móviles.
+- **Cuenta Regresiva**: Un temporizador dinámico que muestra los días, horas, minutos y segundos restantes para el momento de la boda.
+- **Detalles del Evento e Itinerario**:
+  - Ubicación integrada con **Google Maps** (Villa del Carmen, Popayán) para una navegación directa mediante el botón de "Cómo Llegar".
+  - Línea de tiempo (Itinerario) con los momentos clave de la celebración (ceremonia, cóctel, cena, hora loca, etc.).
+  - Detalles de la fiesta (código de vestimenta y sugerencia de regalos).
+- **Interacción Adicional**:
+  - Sección para compartir fotografías del evento.
+  - Formulario/Botón para confirmar asistencia (RSVP).
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🛠️ Tecnologías Utilizadas
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- **[Astro](https://astro.build/)**: Framework web para generar sitios rápidos y ligeros.
+- **HTML, CSS, JavaScript (Vanilla)**: Construcción de componentes, animaciones e interacciones fluidas sin depender de librerías pesadas.
+- **Google Fonts & Material Symbols**: Tipografía elegante (Cormorant Garamond, Montserrat) e íconos modernos.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Cómo ejecutar el proyecto localmente
 
-## 🧞 Commands
+Este proyecto utiliza Node.js y tu gestor de paquetes preferido (`npm`, `pnpm` o `yarn`).
 
-All commands are run from the root of the project, from a terminal:
+1. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+2. **Iniciar el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+   *El servidor local estará disponible en `http://localhost:4321`.*
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+3. **Construir para producción:**
+   ```bash
+   npm run build
+   ```
 
-## 👀 Want to learn more?
+## 🔗 Parámetros de URL admitidos
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Puedes probar la personalización de la invitación agregando los siguientes query parameters a la URL (por ejemplo: `http://localhost:4321/?invitado=Daniela&g=F&cupos=2&mesa=5`):
+
+- `invitado`: Nombre del invitado o familia (ej. "Daniela", "Familia López").
+- `g`: Tratamiento, acepta `M` (Sr.) o `F` (Sra.).
+- `cupos`: Cantidad de puestos reservados para ese invitado.
+- `mesa`: Número de la mesa asignada en la recepción.
