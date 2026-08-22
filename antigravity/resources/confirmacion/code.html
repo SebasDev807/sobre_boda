@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Confirmación de Asistencia</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'playfair': ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            'earth-bg': '#FAEEEB',
+            'earth-surface': '#F4D9C3',
+            'earth-btn': '#6B3E37',
+            'earth-text': '#5A4A42'
+          },
+          borderRadius: {
+            '8xl': '4rem',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts: Playfair Display -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet">
+<style data-purpose="layout">
+    body {
+      background-color: #FAEEEB;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body class="bg-earth-bg flex items-center justify-center min-h-screen p-4" style="background-color: rgb(160, 110, 97);">
+<!-- BEGIN: MainContainer -->
+<!-- The central card container holding the invitation content -->
+<main class="bg-earth-surface w-full rounded-[2.5rem] shadow-xl overflow-hidden flex flex-col relative aspect-[4/5] justify-end pb-8">
+<!-- Top decorative area (reserved for floral image in original, left blank here per instructions) -->
+<div class="h-1/3 w-full bg-[#8C5D55] absolute top-0 left-0"></div>
+<div class="h-2/3 w-full bg-earth-surface relative z-10 rounded-t-[2.5rem] mt-auto flex flex-col justify-center items-center px-8 text-center pt-16">
+<!-- BEGIN: Text Content -->
+<p class="text-earth-text text-base md:text-lg leading-relaxed mb-10 px-2 font-playfair italic">
+        Para nosotros es muy importante que confirmes tu asistencia a nuestra boda, antes del 30 de noviembre 2024.
+      </p>
+<!-- END: Text Content -->
+<!-- BEGIN: Action Buttons -->
+<div class="flex flex-col gap-4 w-full px-4 mb-16">
+<!-- Confirm button -->
+<button class="bg-earth-btn text-white py-3 px-6 rounded-full font-sans uppercase tracking-wider text-sm font-semibold shadow-md hover:bg-opacity-90 transition-colors w-full" type="button" style="background-color: rgb(63, 57, 39);">
+          Confirmar asistencia
+        </button>
+<!-- Calendar button -->
+
+</div>
+<!-- END: Action Buttons -->
+</div>
+</main>
+<!-- END: MainContainer -->
+<!-- BEGIN: Footer -->
+<!-- Bottom branding/URL -->
+<footer class="fixed bottom-4 left-0 w-full text-center flex items-center justify-center gap-2 text-gray-700 font-sans text-sm pb-2">
+
+<span class=""><br></span>
+</footer>
+<!-- END: Footer -->
+
+
+
+
+</body></html>

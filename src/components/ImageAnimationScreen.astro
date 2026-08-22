@@ -7,10 +7,13 @@ import hojas1 from "../assets/hojas-1.png";
 import flores4 from "../assets/flores_4.png";
 import flores5 from "../assets/flores_5.png";
 import colibri from "../assets/colibri.gif";
+import pointingFinger from "../assets/pointing-finger.svg";
 import Countdown from "./Countdown.astro";
 import WeddingDetails from "./WeddingDetails.astro";
 import Itinerary from "./Itinerary.astro";
 import PartyDetails from "./PartyDetails.astro";
+import PhotoShare from "./PhotoShare.astro";
+import RSVPConfirmation from "./RSVPConfirmation.astro";
 import './styles/ImageAnimationScreen.css';
 ---
 
@@ -74,6 +77,12 @@ import './styles/ImageAnimationScreen.css';
       </div>
     </div>
 
+    <!-- Indicador de scroll -->
+    <div class="scroll-hint">
+      <img src={pointingFinger.src} alt="Deslizar" class="scroll-finger-icon" />
+      <span class="scroll-text">Desliza hacia arriba</span>
+    </div>
+
     <!-- Contenedor central vacío -->
   </div>
 
@@ -117,6 +126,12 @@ import './styles/ImageAnimationScreen.css';
 
   <!-- NUEVA PANTALLA FIESTA -->
   <PartyDetails />
+
+  <!-- NUEVA PANTALLA FOTOS -->
+  <PhotoShare />
+
+  <!-- NUEVA PANTALLA CONFIRMACIÓN -->
+  <RSVPConfirmation />
 </div>
 
 <script>
@@ -182,6 +197,18 @@ import './styles/ImageAnimationScreen.css';
       );
 
       observer.observe(cupulaSection);
+    }
+
+    // Ocultar el indicador de scroll al deslizar
+    const scrollHint = document.querySelector(".scroll-hint");
+    if (scrollHint) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 30) {
+          scrollHint.classList.add("hidden");
+        } else {
+          scrollHint.classList.remove("hidden");
+        }
+      });
     }
   });
 </script>
