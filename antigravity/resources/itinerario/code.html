@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Itinerario - Edwin &amp; Vanessa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1e1c10",
+                        "tertiary-container": "#886a5e",
+                        "on-error": "#ffffff",
+                        "surface": "#fff9ec",
+                        "on-primary-fixed-variant": "#73351e",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-variant": "#e9e2d0",
+                        "secondary-fixed-dim": "#e0c1a3",
+                        "on-background": "#1e1c10",
+                        "primary": "#88452d",
+                        "outline": "#86736d",
+                        "tertiary": "#6e5247",
+                        "on-primary-fixed": "#390c00",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f7f0dd",
+                        "on-surface-variant": "#54433e",
+                        "surface-container": "#f4eedb",
+                        "on-secondary-container": "#786047",
+                        "on-secondary-fixed": "#281805",
+                        "outline-variant": "#d9c2ba",
+                        "on-tertiary-fixed-variant": "#5b4136",
+                        "secondary-container": "#fdddbd",
+                        "primary-container": "#a65d43",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb59c",
+                        "primary-fixed-dim": "#ffb59c",
+                        "inverse-surface": "#333024",
+                        "surface-container-high": "#efe8d5",
+                        "secondary-fixed": "#fdddbd",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#fff4f0",
+                        "background": "#fff9ec",
+                        "on-tertiary-container": "#fff4f0",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fff9ec",
+                        "tertiary-fixed-dim": "#e3bfb0",
+                        "surface-tint": "#904b33",
+                        "surface-container-highest": "#e9e2d0",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#faf3e0",
+                        "on-secondary-fixed-variant": "#58432c",
+                        "surface-dim": "#e0dac7",
+                        "on-tertiary-fixed": "#2a170e",
+                        "primary-fixed": "#ffdbcf",
+                        "secondary": "#725a41"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "24px",
+                        "base": "8px",
+                        "arch-top-padding": "120px",
+                        "section-gap": "80px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "script-accent": ["Playfair Display"],
+                        "body-md": ["Libre Franklin"],
+                        "label-sm": ["Libre Franklin"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "400" }],
+                        "script-accent": ["64px", { "lineHeight": "64px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background-color: #6B3E37;
+            height: 100%;
+            z-index: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #6B3E37;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-surface text-primary antialiased min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<main class="flex-grow flex flex-col items-center justify-center py-section-gap px-container-margin md:px-0 max-w-lg mx-auto w-full relative">
+<!-- Background Arch decorative element -->
+<div class="absolute inset-0 bg-surface-container-low rounded-t-[120px] -z-10 mx-4 md:mx-0 mt-8 mb-4 shadow-[0_-4px_12px_rgba(74,50,40,0.04)]"></div>
+<header class="text-center mb-16 pt-12 z-10">
+<h1 class="font-headline-md text-headline-md tracking-widest text-[#6B3E37] uppercase">Itinerario</h1>
+</header>
+<section class="relative w-full max-w-sm mx-auto mb-24 z-10">
+<!-- Central Line -->
+<div class="timeline-line"></div>
+<div class="flex flex-col gap-12 relative w-full">
+<!-- 2:00 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Sí, quiero! Religioso</p>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">church</span>
+<p class="font-label-sm text-label-sm text-[#6B3E37]">2:00 pm</p>
+</div>
+</div>
+<!-- 3:40 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right flex items-center justify-end gap-3">
+<p class="font-label-sm text-label-sm text-[#6B3E37]">3:40 pm</p>
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">directions_bus</span>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Paseo en chiva</p>
+</div>
+</div>
+<!-- 5:30 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Cocktail bienvenida</p>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">local_bar</span>
+<p class="font-label-sm text-label-sm text-[#6B3E37]">5:30 pm - 6:40 pm</p>
+</div>
+</div>
+<!-- 7:00 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right flex items-center justify-end gap-3">
+<p class="font-label-sm text-label-sm text-[#6B3E37]">7:00 pm</p>
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Novios entrada triunfal</p>
+</div>
+</div>
+<!-- 7:30 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Presentación carnaval típica</p>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">masks</span>
+<p class="font-label-sm text-label-sm text-[#6B3E37]">7:30 pm</p>
+</div>
+</div>
+<!-- 8:00 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right flex items-center justify-end gap-3">
+<p class="font-label-sm text-label-sm text-[#6B3E37]">8:00 pm - 9:00 pm</p>
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">restaurant</span>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Cena</p>
+</div>
+</div>
+<!-- 9:30 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Hora del cake: Palabras de hermanos y familia</p>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">cake</span>
+<p class="font-label-sm text-label-sm text-[#6B3E37]">9:30 pm</p>
+</div>
+</div>
+<!-- 10:00 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right flex items-center justify-end gap-3">
+<p class="font-label-sm text-label-sm text-[#6B3E37]">10:00 pm</p>
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">celebration</span>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Brindis</p>
+</div>
+</div>
+<!-- 10:15 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Presentación carnaval salsa</p>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">accessibility_new</span>
+<p class="font-label-sm text-label-sm text-[#6B3E37]">10:15 pm</p>
+</div>
+</div>
+<!-- 10:30 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right flex items-center justify-end gap-3">
+<p class="font-label-sm text-label-sm text-[#6B3E37]">10:30 pm</p>
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">wc</span>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Baile de novios</p>
+</div>
+</div>
+<!-- 11:00 pm -->
+<div class="relative flex items-center w-full min-h-[60px]">
+<div class="w-1/2 pr-6 text-right">
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-lg leading-tight italic">Hora loca</p>
+</div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full flex justify-center z-10">
+<div class="timeline-dot"></div>
+</div>
+<div class="w-1/2 pl-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-[#6B3E37] text-3xl" style="font-variation-settings: 'FILL' 0;">nightlife</span>
+<p class="font-label-sm text-label-sm text-[#6B3E37]">11:00 pm</p>
+</div>
+</div>
+</div>
+</section>
+<footer class="text-center z-10 mt-8 mb-12">
+<h2 class="font-headline-md text-headline-md tracking-widest text-[#6B3E37] uppercase mb-4">Nuestro Amor</h2>
+<p class="font-display-lg-mobile text-display-lg-mobile text-[#6B3E37] text-xl italic max-w-[280px] mx-auto leading-relaxed">
+                "Quiero estar contigo, ahora y para siempre"
+            </p>
+</footer>
+</main>
+</body></html>

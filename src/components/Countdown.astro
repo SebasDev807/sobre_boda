@@ -1,0 +1,100 @@
+---
+import './styles/Countdown.css';
+import flores5 from '../assets/flores_5.png';
+import flores2 from '../assets/flores_4.png';
+---
+
+<section class="countdown-section">
+  <div class="countdown-intro-text">
+    <p>El amor que ha crecido en nosotros desde la primera vez que nos conocimos, nos ha llevado hoy a buscar en Dios la gracia para formar una familia y un hogar santo. Por esta razón después de 7 años de noviazgo hemos decidido casarnos y compartir con las personas mas especiales para nosotros, esta gran felicidad.</p>
+  </div>
+
+  <div class="countdown-card">
+    <div class="countdown-inner-border"></div>
+    <!-- Contenedor de flores que se ajusta a la tarjeta -->
+    <div class="flowers-wrapper">
+      <!-- Flores principales -->
+      <img src={flores5.src} alt="" class="flower flower-top-left flower-anim" />
+      <img src={flores2.src} alt="" class="flower flower-bottom" />
+    </div>
+
+    <!-- Contenido del contador centrado verticalmente -->
+    <div class="countdown-content">
+      <h2 class="countdown-date">19 DE SEPTIEMBRE, 2026</h2>
+      <p class="countdown-location">CEREMONIA EN VILLA DEL CARMEN</p>
+      <p class="countdown-label">F A L T A N</p>
+      
+      <div class="countdown-grid">
+        <div class="countdown-item">
+          <span class="countdown-value" id="days">00</span>
+          <span class="countdown-unit">Días</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value" id="hours">00</span>
+          <span class="countdown-unit">Horas</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value" id="minutes">00</span>
+          <span class="countdown-unit">Minutos</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value" id="seconds">00</span>
+          <span class="countdown-unit">Segundos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Fecha objetivo: 19 de septiembre de 2026 a las 18:00 (6 PM)
+    const targetDate = new Date('2026-09-19T18:00:00').getTime();
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        if(daysEl) daysEl.textContent = '00';
+        if(hoursEl) hoursEl.textContent = '00';
+        if(minutesEl) minutesEl.textContent = '00';
+        if(secondsEl) secondsEl.textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if(daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+      if(hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+      if(minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+      if(secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Observer para la animación al hacer scroll
+    const countdownSection = document.querySelector('.countdown-section');
+    if (countdownSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-on-scroll');
+            // Opcional: observer.unobserve(entry.target) si solo quieres que se anime una vez
+          }
+        });
+      }, { threshold: 0.3 });
+      
+      observer.observe(countdownSection);
+    }
+  });
+</script>

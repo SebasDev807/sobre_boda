@@ -1,0 +1,169 @@
+.itinerary-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 1.5rem;
+  box-sizing: border-box;
+  background-color: var(--color-surface); /* Marfil como fondo */
+  overflow: hidden;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+/* Contenedor principal de la línea de tiempo */
+.timeline-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px; /* Ancho máximo para mantenerlo compacto */
+  margin: 0 auto 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* La línea central */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background-color: var(--color-text-main);
+  opacity: 0.2;
+  z-index: 0;
+}
+
+/* Cada fila del itinerario */
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 60px;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilos para el texto de contenido (descripción del evento) */
+.timeline-content {
+  width: 45%;
+}
+
+.timeline-desc {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-text-main);
+  font-style: italic;
+  line-height: 1.3;
+}
+
+/* Estilos para la hora e icono */
+.timeline-time {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline-time p {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--color-text-main);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.05em;
+}
+
+.timeline-time .icon {
+  font-size: 24px;
+  color: var(--color-text-main);
+}
+
+/* Alineaciones según lado */
+.left-aligned .timeline-content {
+  text-align: right;
+  padding-right: 1.5rem;
+}
+.left-aligned .timeline-time {
+  padding-left: 1.5rem;
+  justify-content: flex-start;
+}
+
+.right-aligned .timeline-time {
+  text-align: right;
+  padding-right: 1.5rem;
+  justify-content: flex-end;
+}
+.right-aligned .timeline-content {
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+/* Punto central de cada evento */
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-text-main);
+  box-shadow: 0 0 0 4px var(--color-surface); /* Para darle "espacio" contra la línea central */
+  z-index: 10;
+}
+
+/* Footer / Quote final */
+.itinerary-footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.footer-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
+.footer-quote {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+  font-style: italic;
+  max-width: 300px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Animación inicial para el contenedor principal */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.itinerary-section.animate-on-scroll .fade-up {
+  opacity: 1;
+  transform: translateY(0);
+}

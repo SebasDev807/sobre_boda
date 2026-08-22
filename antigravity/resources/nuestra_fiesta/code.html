@@ -1,0 +1,210 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nuestra Fiesta - Edwin &amp; Vanessa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#904b33",
+                      "on-secondary-container": "#786047",
+                      "surface-variant": "#e9e2d0",
+                      "surface-dim": "#e0dac7",
+                      "tertiary-fixed-dim": "#e3bfb0",
+                      "background": "#fff9ec",
+                      "tertiary-fixed": "#ffdbcd",
+                      "secondary-fixed": "#fdddbd",
+                      "primary-fixed-dim": "#ffb59c",
+                      "primary": "#88452d",
+                      "outline-variant": "#d9c2ba",
+                      "on-secondary-fixed": "#281805",
+                      "primary-container": "#a65d43",
+                      "on-primary": "#ffffff",
+                      "outline": "#86736d",
+                      "on-surface": "#1e1c10",
+                      "on-primary-fixed": "#390c00",
+                      "surface": "#fff9ec",
+                      "on-background": "#1e1c10",
+                      "surface-container-low": "#faf3e0",
+                      "inverse-surface": "#333024",
+                      "on-secondary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-highest": "#e9e2d0",
+                      "error": "#ba1a1a",
+                      "inverse-primary": "#ffb59c",
+                      "on-primary-fixed-variant": "#73351e",
+                      "tertiary": "#6e5247",
+                      "inverse-on-surface": "#f7f0dd",
+                      "secondary-container": "#fdddbd",
+                      "surface-container-high": "#efe8d5",
+                      "secondary": "#725a41",
+                      "on-tertiary-fixed-variant": "#5b4136",
+                      "on-primary-container": "#fff4f0",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#fff9ec",
+                      "on-secondary-fixed-variant": "#58432c",
+                      "on-error": "#ffffff",
+                      "on-tertiary-container": "#fff4f0",
+                      "on-tertiary-fixed": "#2a170e",
+                      "primary-fixed": "#ffdbcf",
+                      "on-surface-variant": "#54433e",
+                      "tertiary-container": "#886a5e",
+                      "secondary-fixed-dim": "#e0c1a3",
+                      "surface-container": "#f4eedb",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "80px",
+                      "gutter": "16px",
+                      "container-margin": "24px",
+                      "base": "8px",
+                      "arch-top-padding": "120px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Libre Franklin"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "script-accent": [
+                              "Playfair Display"
+                      ],
+                      "label-sm": [
+                              "Libre Franklin"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "script-accent": [
+                              "64px",
+                              {
+                                      "lineHeight": "64px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+          /* Material Icons configuration */
+          .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 300,
+            'GRAD' 0,
+            'opsz' 24;
+          }
+          .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+          }
+          
+          /* Smooth scrolling for the invitation */
+          html {
+              scroll-behavior: smooth;
+          }
+      </style>
+</head>
+<body class="bg-primary text-on-primary min-h-screen flex flex-col items-center font-body-md selection:bg-primary-container selection:text-on-primary-container relative" style="background-color: rgb(162, 109, 97);">
+<main class="w-full max-w-md mx-auto flex flex-col px-container-margin py-section-gap min-h-screen items-center justify-center text-center space-y-16">
+<header class="w-full flex flex-col items-center mb-8">
+<h1 class="font-display-lg-mobile text-display-lg-mobile uppercase tracking-widest text-on-primary mb-4">Nuestra<br>Fiesta</h1>
+<p class="font-body-md text-body-md text-on-primary/80 max-w-xs mx-auto">Detalles para tener en cuenta el día de la boda.</p>
+</header>
+<section class="w-full flex flex-col items-center space-y-8 relative">
+<div class="flex flex-col items-center w-full relative z-10">
+<h2 class="font-headline-md text-headline-md uppercase tracking-wider text-on-primary mb-6">Dress Code</h2>
+<div class="flex flex-row justify-center items-center w-full max-w-sm gap-4 mb-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/90">Mujeres</span>
+<span class="text-on-primary/50 text-sm">---</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/90">Hombres</span>
+</div>
+<div class="flex flex-row justify-center items-center w-full max-w-sm gap-4 mb-8">
+<span class="font-body-md text-body-md text-on-primary/80">Vestido formal</span>
+<span class="text-on-primary/50 text-sm">---</span>
+<span class="font-body-md text-body-md text-on-primary/80">Vestido formal</span>
+</div>
+<div class="flex flex-col items-center mt-6">
+<a class="w-16 h-16 rounded-full border border-on-primary/30 flex items-center justify-center mb-6 hover:bg-on-primary/10 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined text-3xl text-on-primary">draw</span>
+</a>
+<p class="font-body-md text-body-md text-on-primary/80 mb-6 max-w-xs text-center">Inspirate en los siguientes looks</p>
+<button class="bg-inverse-surface text-inverse-on-surface px-8 py-3 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 transition-opacity duration-300">
+                        Sugerencias
+                    </button>
+</div>
+</div>
+<div class="w-1/2 h-px bg-on-primary/20 my-8"></div>
+</section>
+<section class="w-full flex flex-col items-center mt-8 pb-16">
+<h2 class="font-headline-md text-headline-md uppercase tracking-wider text-on-primary mb-6">Música</h2>
+<div class="w-20 h-20 rounded-full bg-on-primary/5 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-on-primary">music_note</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary/80 mb-8 max-w-xs text-center">¿Qué canción no puede faltar en la fiesta?</p>
+<button class="text-on-primary border border-on-primary/20 px-8 py-3 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:bg-on-primary/10 transition-colors duration-300" style="background-color: rgb(51, 47, 36);">
+                Sugerir Canción
+            </button>
+</section>
+</main>
+
+
+</body></html>

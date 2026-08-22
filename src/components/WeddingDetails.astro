@@ -1,0 +1,59 @@
+---
+import './styles/WeddingDetails.css';
+---
+
+<section class="wedding-details-section">
+  <h2 class="section-title">Detalles de la Boda</h2>
+  
+  <div class="details-card">
+    
+    <!-- Ceremonia -->
+    <div class="detail-item ceremonia-item">
+      <h3 class="detail-title">Ceremonia</h3>
+      <div class="detail-photo-wrapper">
+        <img class="detail-photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPtyOlJn1_Vyhj2Hxdv0GDbfv2tpKJyBVHL9KET8F8ghmgVJlDfshGaJLdP3vVjVltuXoER01jkXmKMSPPA3Rux-0qIIBKh7ACDB7ajge2p7sTi0oxOiTQZectDYEIi7NmXcQjgLDbKwJci3lr6dj6pcfhYWduyPHyd73NVV0sHk4dUr0m2NJxL6QXS4MFlZ_RBY6mIBA5vMZILnqskLO6hPhbte7fGKVuQ3_2HOXocstF1rq1v3avPw" alt="Iglesia para ceremonia">
+      </div>
+      <div class="detail-text">
+        <p>Catedral San Jerónimo B/ Centro</p>
+        <p>Montería - Córdoba</p>
+        <p class="detail-time">6:00 PM</p>
+      </div>
+      <button class="btn btn-action">Cómo Llegar</button>
+    </div>
+
+    <!-- Línea divisoria -->
+    <div class="detail-divider"></div>
+
+    <!-- Recepción -->
+    <div class="detail-item recepcion-item">
+      <h3 class="detail-title">Recepción</h3>
+      <div class="detail-photo-wrapper">
+        <img class="detail-photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAURKoNRB1MN6tQEnGG28W5k2VlZ1IY_wLCiHnbiHjfUm5tlQCoomq8pjUoq5No15wrwqckF631hcEnXBzmOKc815rYpcNy9P4yG81lc2HfsmQtXzKPG3rYx2PmOvzw7aSSlUpKgSvdU_ObKS8ufkC_bq4NLJaGfrVkM1SUQc5mls9KvGlBR_XU1ECj0evvDeIArw1cAU2bpIottNRhS0kFkND1V4pF98SKy-SrgoaINeDVkdsDYImE0A" alt="Lugar de recepción">
+      </div>
+      <div class="detail-text">
+        <p>Cocobiche</p>
+        <p>Montería - Córdoba</p>
+        <p class="detail-time">8:00 PM</p>
+      </div>
+      <button class="btn btn-action">Cómo Llegar</button>
+    </div>
+    
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const detailsSection = document.querySelector('.wedding-details-section');
+    if (detailsSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-on-scroll');
+          }
+        });
+      }, { threshold: 0.15 });
+      
+      observer.observe(detailsSection);
+    }
+  });
+</script>
