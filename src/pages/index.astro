@@ -29,8 +29,19 @@ import "./index.css";
           </p>
         </div>
 
-        <div class="fade-in" style="width: 100%; animation-delay: 0.7s;">
+        <div class="fade-in" style="width: 100%; animation-delay: 0.7s;" id="envelope-wrapper">
           <Envelope />
+          <!-- Overlay de bloqueo cuando falta el nombre -->
+          <div class="envelope-blocked-overlay" id="envelope-blocked" aria-hidden="true">
+            <span class="material-symbols-outlined blocked-icon">lock</span>
+          </div>
+        </div>
+
+        <!-- Panel de error: sobre sin nombre -->
+        <div class="no-name-error" id="no-name-error" role="alert" aria-live="polite">
+          <span class="material-symbols-outlined error-icon">sentiment_dissatisfied</span>
+          <p class="error-title">Este sobre no tiene destinatario</p>
+          <p class="error-desc">El enlace de esta invitación no incluye un nombre. Por favor pide al remitente que te comparta el enlace correcto.</p>
         </div>
       </section>
 
@@ -46,33 +57,46 @@ import "./index.css";
   document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const invitado = urlParams.get("invitado");
-    const genero = urlParams.get("g");
-    const cupos = urlParams.get("cupos");
-    const mesa = urlParams.get("mesa");
+    const genero    = urlParams.get("g");
+    const cupos     = urlParams.get("cupos");
+    const mesa      = urlParams.get("mesa");
 
-    if (invitado) {
-      let prefijo = "";
-      if (genero) {
-        const g = genero.toUpperCase();
-        if (g === "M") prefijo = "Sr. ";
-        else if (g === "F") prefijo = "Sra. ";
-      }
+    const errorPanel      = document.getElementById("no-name-error");
+    const envelopeBlocked = document.getElementById("envelope-blocked");
+    const envelopeWrapper = document.getElementById("envelope-wrapper");
+    const messageDiv      = document.querySelector(".message");
+    const guestInfo       = document.querySelector(".guest-info");
 
-      const nameEl = document.getElementById("index-guest-name");
-      if (nameEl) {
-        nameEl.textContent = `${prefijo}${invitado}`;
-      }
+    // ── Sin nombre: mostrar error y bloquear sobre ──
+    if (!invitado || !invitado.trim()) {
+      if (errorPanel)      errorPanel.classList.add("visible");
+      if (envelopeBlocked) envelopeBlocked.classList.add("visible");
+      if (envelopeWrapper) envelopeWrapper.classList.add("blocked");
+      if (messageDiv)      messageDiv.style.display = "none";
+      if (guestInfo)       guestInfo.style.display  = "none";
+      return; // Nada más que hacer
+    }
+
+    // ── Con nombre: construir prefijo ──
+    let prefijo = "Sr. "; // Por defecto
+    if (genero) {
+      const g = genero.toUpperCase();
+      if      (g === "M")  prefijo = "Sr. ";
+      else if (g === "F")  prefijo = "Sra. ";
+      else if (g === "FM") prefijo = "Familia ";
+    }
+
+    const nameEl = document.getElementById("index-guest-name");
+    if (nameEl) {
+      nameEl.textContent = `${prefijo}${invitado.trim()}`;
     }
 
     const detailsEl = document.getElementById("index-guest-details");
     if (detailsEl) {
-      if (cupos && mesa) {
-        detailsEl.innerHTML = `CUPOS: ${cupos} &mdash; MESA: ${mesa}`;
-      } else if (cupos) {
-        detailsEl.innerHTML = `CUPOS: ${cupos}`;
-      } else if (mesa) {
-        detailsEl.innerHTML = `MESA: ${mesa}`;
-      }
+      if      (cupos && mesa) detailsEl.innerHTML = `CUPOS: ${cupos} &mdash; MESA: ${mesa}`;
+      else if (cupos)         detailsEl.innerHTML = `CUPOS: ${cupos}`;
+      else if (mesa)          detailsEl.innerHTML = `MESA: ${mesa}`;
+      else                    detailsEl.style.display = "none";
     }
   });
 </script>

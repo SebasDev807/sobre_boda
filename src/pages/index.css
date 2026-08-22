@@ -106,6 +106,95 @@
     font-family: var(--font-serif);
     font-size: var(--text-lg);
     letter-spacing: var(--tracking-widest);
-    color: var(--color-text-main); /* Cambiado a main para mayor legibilidad */
+    color: var(--color-text-main);
+    margin: 0;
+  }
+
+  /* ── Overlay de bloqueo sobre el sobre ── */
+  #envelope-wrapper {
+    position: relative;
+  }
+
+  .envelope-blocked-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(253, 251, 247, 0.75);
+    backdrop-filter: blur(3px);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .envelope-blocked-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #envelope-wrapper.blocked {
+    cursor: not-allowed;
+  }
+
+  #envelope-wrapper.blocked .interactive-envelope-container {
+    pointer-events: none;
+  }
+
+  .blocked-icon {
+    font-size: 52px;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+  }
+
+  /* ── Panel de error: sobre sin nombre ── */
+  .no-name-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.5rem 1.2rem;
+    margin-top: 1.5rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(44, 41, 38, 0.08);
+
+    /* Oculto por defecto */
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease 0.3s, max-height 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+    pointer-events: none;
+  }
+
+  .no-name-error.visible {
+    opacity: 1;
+    max-height: 200px;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .error-icon {
+    font-size: 40px;
+    color: var(--color-accent);
+  }
+
+  .error-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-main);
+    margin: 0;
+  }
+
+  .error-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-muted);
     margin: 0;
   }

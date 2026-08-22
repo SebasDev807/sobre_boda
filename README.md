@@ -45,7 +45,8 @@ Este proyecto utiliza Node.js y tu gestor de paquetes preferido (`npm`, `pnpm` o
 
 Puedes probar la personalización de la invitación agregando los siguientes query parameters a la URL (por ejemplo: `http://localhost:4321/?invitado=Daniela&g=F&cupos=2&mesa=5`):
 
-- `invitado`: Nombre del invitado o familia (ej. "Daniela", "Familia López").
-- `g`: Tratamiento, acepta `M` (Sr.) o `F` (Sra.).
+- `invitado` (**obligatorio**): Nombre del invitado o familia (ej. "Daniela", "Familia López"). Si este parámetro falta, se muestra un error amigable y el sobre queda bloqueado.
+- `g`: Tratamiento. Acepta `M` (Sr.), `F` (Sra.) o `FM` (Familia). **Por defecto es `M` (Sr.)** si no se especifica.
 - `cupos`: Cantidad de puestos reservados para ese invitado.
 - `mesa`: Número de la mesa asignada en la recepción.
+
