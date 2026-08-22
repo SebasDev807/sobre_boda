@@ -1,58 +1,78 @@
 ---
-import './styles/WeddingDetails.css';
+import "./styles/WeddingDetails.css";
+import villaDelCarmen from "../assets/villa_del_carmen.jpg";
 ---
 
 <section class="wedding-details-section">
   <h2 class="section-title">Detalles de la Boda</h2>
-  
+
   <div class="details-card">
-    
-    <!-- Ceremonia -->
-    <div class="detail-item ceremonia-item">
-      <h3 class="detail-title">Ceremonia</h3>
-      <div class="detail-photo-wrapper">
-        <img class="detail-photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPtyOlJn1_Vyhj2Hxdv0GDbfv2tpKJyBVHL9KET8F8ghmgVJlDfshGaJLdP3vVjVltuXoER01jkXmKMSPPA3Rux-0qIIBKh7ACDB7ajge2p7sTi0oxOiTQZectDYEIi7NmXcQjgLDbKwJci3lr6dj6pcfhYWduyPHyd73NVV0sHk4dUr0m2NJxL6QXS4MFlZ_RBY6mIBA5vMZILnqskLO6hPhbte7fGKVuQ3_2HOXocstF1rq1v3avPw" alt="Iglesia para ceremonia">
+    <!-- Ubicación única -->
+    <div class="detail-item ubicacion-item">
+      <div class="venue-photo-wrapper">
+        <img class="venue-photo" src={villaDelCarmen.src} alt="Villa del Carmen, Popayán" />
       </div>
-      <div class="detail-text">
-        <p>Catedral San Jerónimo B/ Centro</p>
-        <p>Montería - Córdoba</p>
-        <p class="detail-time">6:00 PM</p>
-      </div>
-      <button class="btn btn-action">Cómo Llegar</button>
-    </div>
+      <h3 class="detail-title">Villa del Carmen</h3>
+      <p class="detail-address">Popayán, Cauca</p>
 
-    <!-- Línea divisoria -->
-    <div class="detail-divider"></div>
+      <!-- Mapa embebido -->
+      <div class="map-wrapper">
+        <iframe
+          class="map-iframe"
+          src="https://www.google.com/maps?q=2.5271797,-76.5530686&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Villa del Carmen, Popayán"></iframe>
+      </div>
 
-    <!-- Recepción -->
-    <div class="detail-item recepcion-item">
-      <h3 class="detail-title">Recepción</h3>
-      <div class="detail-photo-wrapper">
-        <img class="detail-photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAURKoNRB1MN6tQEnGG28W5k2VlZ1IY_wLCiHnbiHjfUm5tlQCoomq8pjUoq5No15wrwqckF631hcEnXBzmOKc815rYpcNy9P4yG81lc2HfsmQtXzKPG3rYx2PmOvzw7aSSlUpKgSvdU_ObKS8ufkC_bq4NLJaGfrVkM1SUQc5mls9KvGlBR_XU1ECj0evvDeIArw1cAU2bpIottNRhS0kFkND1V4pF98SKy-SrgoaINeDVkdsDYImE0A" alt="Lugar de recepción">
+      <!-- Horarios -->
+      <div class="schedule-row">
+        <div class="schedule-item">
+          <span class="material-symbols-outlined schedule-icon">church</span>
+          <p class="schedule-label">Ceremonia</p>
+          <p class="schedule-time">6:00 PM</p>
+        </div>
+        <div class="schedule-divider-v"></div>
+        <div class="schedule-item">
+          <span class="material-symbols-outlined schedule-icon"
+            >celebration</span
+          >
+          <p class="schedule-label">Recepción</p>
+          <p class="schedule-time">7:00 PM</p>
+        </div>
       </div>
-      <div class="detail-text">
-        <p>Cocobiche</p>
-        <p>Montería - Córdoba</p>
-        <p class="detail-time">8:00 PM</p>
-      </div>
-      <button class="btn btn-action">Cómo Llegar</button>
+
+      <!-- Botón Cómo llegar -->
+      <a
+        id="btn-como-llegar"
+        class="btn btn-action"
+        href="https://www.google.com/maps/dir/?api=1&destination=2.5271797,-76.5530686"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="material-symbols-outlined btn-icon">navigation</span>
+        Cómo Llegar
+      </a>
     </div>
-    
   </div>
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const detailsSection = document.querySelector('.wedding-details-section');
+  document.addEventListener("DOMContentLoaded", () => {
+    const detailsSection = document.querySelector(".wedding-details-section");
     if (detailsSection) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-on-scroll');
-          }
-        });
-      }, { threshold: 0.15 });
-      
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-on-scroll");
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+
       observer.observe(detailsSection);
     }
   });

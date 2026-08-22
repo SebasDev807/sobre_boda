@@ -158,3 +158,9 @@ button:hover, .btn:hover {
     transform: translateY(0);
   }
 }
+
+/* ── Scroll Snap: cada sección hija se engancha suavemente ── */
+#image-animation-screen > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
