@@ -25,7 +25,7 @@
   left: -20px;
   width: 200px;
   max-width: 50vw;
-  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.08));
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.08));
 }
 
 .rsvp-flower-bottom {
@@ -34,7 +34,7 @@
   transform: translateX(-50%);
   width: 105%;
   max-width: 500px;
-  filter: drop-shadow(0 -4px 12px rgba(0,0,0,0.06));
+  filter: drop-shadow(0 -4px 12px rgba(0, 0, 0, 0.06));
 }
 
 /* Tarjeta central */
@@ -47,7 +47,7 @@
   width: 80%;
   max-width: 320px;
   align-self: center;
-  margin-top: 4rem;
+  margin-top: 15rem;
   padding: 2.5rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -179,11 +179,18 @@
 .rsvp-colibri {
   width: 240px;
   opacity: 0.95;
-  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.12));
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.12));
   animation: colibriFloat 5s ease-in-out infinite;
 }
 
 @keyframes colibriFloat {
-  0%, 100% { transform: translateY(0px) rotate(-2deg); }
-  50%       { transform: translateY(-16px) rotate(2deg); }
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-16px) rotate(2deg);
+  }
 }
