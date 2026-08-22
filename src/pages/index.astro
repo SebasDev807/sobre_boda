@@ -64,8 +64,8 @@ import "./index.css";
     const errorPanel      = document.getElementById("no-name-error");
     const envelopeBlocked = document.getElementById("envelope-blocked");
     const envelopeWrapper = document.getElementById("envelope-wrapper");
-    const messageDiv      = document.querySelector(".message");
-    const guestInfo       = document.querySelector(".guest-info");
+    const messageDiv      = document.querySelector(".message") as HTMLElement | null;
+    const guestInfo       = document.querySelector(".guest-info") as HTMLElement | null;
 
     // ── Sin nombre: mostrar error y bloquear sobre ──
     if (!invitado || !invitado.trim()) {
