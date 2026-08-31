@@ -76,6 +76,34 @@
   line-height: 1.3;
 }
 
+/* Lista del menú dentro de un evento */
+.timeline-menu {
+  list-style: none;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.timeline-menu li {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--color-text-main);
+  opacity: 0.75;
+  line-height: 1.4;
+}
+
+.menu-cat {
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.6rem;
+  display: block;
+  opacity: 1;
+  color: var(--color-text-main);
+}
+
 /* Estilos para la hora e icono */
 .timeline-time {
   width: 45%;
