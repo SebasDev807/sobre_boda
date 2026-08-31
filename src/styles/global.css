@@ -166,10 +166,8 @@ button:hover, .btn:hover {
 }
 
 /* ── Iconos SVG (astro-icon) ── */
-/* Tamaño y color base para todos los iconos del proyecto */
+/* Tamaño y color base para iconos generales */
 svg.icon,
-svg.schedule-icon,
-svg.btn-icon,
 svg.blocked-icon,
 svg.error-icon {
   width: 24px;

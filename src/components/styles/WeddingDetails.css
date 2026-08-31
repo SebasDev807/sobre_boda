@@ -130,8 +130,10 @@
 }
 
 .schedule-icon {
-  font-size: 28px;
-  color: var(--color-accent, #b8956a);
+  width: 28px;
+  height: 28px;
+  color: var(--color-accent, #C5A880);
+  fill: var(--color-accent, #C5A880);
 }
 
 .schedule-label {
@@ -186,7 +188,10 @@
 }
 
 .btn-icon {
-  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  color: #ffffff;
+  fill: #ffffff;
 }
 
 /* ── Animaciones de entrada ── */
