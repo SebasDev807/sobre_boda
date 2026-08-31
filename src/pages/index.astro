@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Logo from "../components/Logo.astro";
 import Envelope from "../components/Envelope.astro";
 import ImageAnimationScreen from "../components/ImageAnimationScreen.astro";
+import { Icon } from 'astro-icon/components';
 import "./index.css";
 ---
 
@@ -33,13 +34,13 @@ import "./index.css";
           <Envelope />
           <!-- Overlay de bloqueo cuando falta el nombre -->
           <div class="envelope-blocked-overlay" id="envelope-blocked" aria-hidden="true">
-            <span class="material-symbols-outlined blocked-icon">lock</span>
+            <Icon name="material-symbols:lock" class="blocked-icon" />
           </div>
         </div>
 
         <!-- Panel de error: sobre sin nombre -->
         <div class="no-name-error" id="no-name-error" role="alert" aria-live="polite">
-          <span class="material-symbols-outlined error-icon">sentiment_dissatisfied</span>
+          <Icon name="material-symbols:sentiment-dissatisfied" class="error-icon" />
           <p class="error-title">Este sobre no tiene destinatario</p>
           <p class="error-desc">El enlace de esta invitación no incluye un nombre. Por favor pide al remitente que te comparta el enlace correcto.</p>
         </div>

@@ -1,5 +1,6 @@
 ---
 import "./styles/WeddingDetails.css";
+import { Icon } from 'astro-icon/components';
 import villaDelCarmen from "../assets/villa_del_carmen.jpg";
 ---
 
@@ -29,15 +30,13 @@ import villaDelCarmen from "../assets/villa_del_carmen.jpg";
       <!-- Horarios -->
       <div class="schedule-row">
         <div class="schedule-item">
-          <span class="material-symbols-outlined schedule-icon">church</span>
+          <Icon name="material-symbols:church" class="schedule-icon" />
           <p class="schedule-label">Ceremonia</p>
           <p class="schedule-time">6:00 PM</p>
         </div>
         <div class="schedule-divider-v"></div>
         <div class="schedule-item">
-          <span class="material-symbols-outlined schedule-icon"
-            >celebration</span
-          >
+          <Icon name="material-symbols:celebration" class="schedule-icon" />
           <p class="schedule-label">Recepción</p>
           <p class="schedule-time">7:00 PM</p>
         </div>
@@ -51,7 +50,7 @@ import villaDelCarmen from "../assets/villa_del_carmen.jpg";
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span class="material-symbols-outlined btn-icon">navigation</span>
+        <Icon name="material-symbols:navigation" class="btn-icon" />
         Cómo Llegar
       </a>
     </div>

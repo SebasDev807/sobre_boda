@@ -164,3 +164,17 @@ button:hover, .btn:hover {
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
+
+/* ── Iconos SVG (astro-icon) ── */
+/* Tamaño y color base para todos los iconos del proyecto */
+svg.icon,
+svg.schedule-icon,
+svg.btn-icon,
+svg.blocked-icon,
+svg.error-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-text-main);
+  fill: currentColor;
+  flex-shrink: 0;
+}
